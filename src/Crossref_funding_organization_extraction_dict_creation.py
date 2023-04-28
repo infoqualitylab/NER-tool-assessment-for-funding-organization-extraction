@@ -2,6 +2,7 @@ import csv
 import xml
 import xml.etree.ElementTree as ET
 from string import ascii_lowercase as alph
+# from string import ascii_uppercase as alph
 
 ## create dictionary for sorted searching of orga, names
 def funder_dictionary_creation(filename):
@@ -23,11 +24,11 @@ def funder_dictionary_creation(filename):
             #print(entry)
             if entry.tag == '{http://www.w3.org/2008/05/skos-xl#}prefLabel' or entry.tag == '{http://www.w3.org/2008/05/skos-xl#}altLabel':
 
-                orga_name = entry[0][0].text.lower()
+                orga_name = entry[0][0].text # .lower()
                 #print(orga_name)
                 #print(orga_name[0])
-                if orga_name[0] in alph:
-                    orga_dict[orga_name[0]] == orga_dict[orga_name[0]].append(orga_name)
+                if orga_name[0].lower() in alph:
+                    orga_dict[orga_name[0].lower()] == orga_dict[orga_name[0].lower()].append(orga_name)
                 else:
                     orga_dict['other'].append(orga_name)
 

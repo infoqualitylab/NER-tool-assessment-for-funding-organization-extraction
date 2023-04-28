@@ -127,7 +127,7 @@ if __name__ == '__main__':
         xml_files = os.listdir(xml_path)
         xml_files = [ele for ele in xml_files if ele.split("_")[0] == "pmc"]
         for ele in xml_files:
-            with open(os.path.join(xml_path, ele)) as input_file:
+            with open(os.path.join(xml_path, ele), encoding='utf-8') as input_file:
                 contents = input_file.read()
 
                 # embedding the XML with beautiful soup module
@@ -147,7 +147,7 @@ if __name__ == '__main__':
 
         # downloading the xml files
         start_date = '2022/01/01'
-        end_date = '2022/01/15'
+        end_date = '2022/02/01'
         search_analyzer, query_dict = PubMed_API_XML_Retrieval.xml_extraction_query(start_date, end_date)
 
         pmids = search_analyzer.result.uids
@@ -164,7 +164,7 @@ if __name__ == '__main__':
             xml_path = "../data/xml"
             xml_files = os.listdir(xml_path)
             xml_files = [ele for ele in xml_files if ele.split("_")[0] == "pmc"]
-            with open(os.path.join(xml_path, xml_files[0])) as input_file:
+            with open(os.path.join(xml_path, xml_files[0]), encoding ='utf-8') as input_file:
                 contents = input_file.read()
 
                 # embedding the XML with beautiful soup module

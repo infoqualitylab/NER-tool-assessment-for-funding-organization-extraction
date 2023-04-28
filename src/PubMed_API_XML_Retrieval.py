@@ -73,7 +73,7 @@ def xml_download(search_analyzer, query_dict, start_pmid, end_pmid, pmids):
             fetcher = entrezpy.efetch.efetcher.Efetcher("entrezpy",
                                                         "srevolution23@gmail.com",
                                                         apikey="959aa974127d557c0a823891fc0aaa990f08")
-            fetcher.inquire({'db': 'pmc', 'retmode': 'xml', 'id': pmids[start_pmid: end_pmid], 'usehistory': False})
+            fetcher.inquire({'db': 'pmc', 'retmode': 'xml', 'id': pmids[start_pmid: end_pmid], 'usehistory': True})
         except ValueError:
             pass
         sys.stdout.flush()
